@@ -1,0 +1,46 @@
+# Archivos de configuración del sistema
+/config/configuracion.php
+
+# Archivos y carpetas generados
+/uploads/*
+!/uploads/Peliculas/.gitkeep
+/public/uploads/*
+!/public/uploads/.gitkeep
+/node_modules/
+/vendor/
+
+# Archivos de entorno local
+.env
+.env.local
+.env.*.local
+
+# Archivos de IDE y editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de log
+*.log
+/logs/
+debug.log
+
+# Archivos de caché
+*.cache
+
+# Archivos de respaldo
+*.bak
+*.backup
+*~
+
+# Archivos de configuración local de PHP
+php.ini
+.phpunit.result.cache
+
+# Mantener carpetas vacías con .gitkeep
+!.gitkeep

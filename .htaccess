@@ -1,0 +1,29 @@
+RewriteEngine On
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Permitir acceso directo a archivos y directorios existentes
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirigir todas las demás solicitudes a index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Manejo de errores (usando rutas relativas)
+ErrorDocument 404 index.php?url=error/404
+ErrorDocument 403 index.php?url=error/403
+
+# Configuración de seguridad básica
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Configuración para archivos de imagen
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Header set Cache-Control "public, max-age=2592000"
+    Header set Expires "access plus 1 month"
+</FilesMatch>

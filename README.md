@@ -1,4 +1,4 @@
-# Sistema de Cine
+# Sistema de Cine (Venta de entradas)
 
 ## Configuración
 
